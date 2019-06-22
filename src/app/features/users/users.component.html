@@ -1,35 +1,57 @@
-<section fxLayout="column" >
+<section fxLayout="column" class="users">
   <div fxFlex="40px">
     <div fxLayout="row" *ngIf="!searchVisible">
       <div fxFlex="50%">
         <h2>Users</h2>
       </div>
       <div fxFlex="auto" fxFlexAlign="right">
-        <span>
-          <mat-icon aria-hidden="false" aria-label="Filter">filter_list</mat-icon>
-        </span>
+        <button mat-button matSuffix mat-icon-button>
+          <span>
+            <mat-icon aria-hidden="false" aria-label="Filter">
+              filter_list
+            </mat-icon>
+          </span>
+        </button>
       </div>
-      <div fxFlex="auto" fxFlexAlign="right">
-        <button mat-button  matSuffix mat-icon-button aria-label="Search" (click)="toggleSearch()">
+      <div fxFlex="auto" fxFlexAlign="right" >
+        <button
+          mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="Search"
+          (click)="toggleSearch()"
+        >
           <mat-icon aria-hidden="false" aria-label="Search">search</mat-icon>
         </button>
       </div>
     </div>
-    <div *ngIf="searchVisible">
-      <button mat-button  matSuffix mat-icon-button aria-label="Back" (click)="toggleSearch()">
-          <mat-icon aria-hidden="false" aria-label="BAck icon">arrow_back</mat-icon>
+    <div *ngIf="searchVisible" fxLayout="row">
+      <div fxFlex="auto">
+        <button
+          mat-button
+          matSuffix
+          mat-icon-button
+          aria-label="Back"
+          (click)="toggleSearch()"
+        >
+          <mat-icon aria-hidden="false" aria-label="BAck icon"
+            >arrow_back</mat-icon
+          >
         </button>
-      <mat-form-field class="search-field">
-        <input matInput type="text" placeholder="Clearable input" >
-        <button mat-button matSuffix mat-icon-button aria-label="Clear" >
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-form-field>
+      </div>
+      <div fxFlex="auto" class="users__search">
+        <mat-form-field class="search-field">
+          <input matInput type="text" placeholder="Clearable input" />
+          <button mat-button matSuffix mat-icon-button aria-label="Clear">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
     </div>
   </div>
   <div fxFlex="auto">
     <mat-list>
-      <app-users-item *ngFor="let photo of [1,2,3,4,5,6]" ></app-users-item>
-     </mat-list>
+      <app-users-item *ngFor="let photo of [1, 2, 3, 4, 5, 6]"></app-users-item>
+    </mat-list>
   </div>
 </section>
