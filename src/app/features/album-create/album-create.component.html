@@ -1,3 +1,11 @@
-<p>
-  album-create works!
-</p>
+<h1 mat-dialog-title>Create new album</h1>
+<div mat-dialog-content>
+  <p>Write album title</p>
+  <mat-form-field>
+      <input matInput type="text" placeholder="Clearable input" [(ngModel)]="data.title">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.title" cdkFocusInitial>Create</button>
+</div>

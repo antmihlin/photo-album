@@ -1,6 +1,9 @@
+import { AlbumCreateComponent } from './../album-create/album-create.component';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { JsonPlaceholderService } from '../../services/json-placeholder.service';
-import { FiltersService} from '../../services/filters.service';
+import { FiltersService } from '../../services/filters.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-albums',
@@ -9,17 +12,21 @@ import { FiltersService} from '../../services/filters.service';
 })
 export class AlbumsComponent implements OnInit, OnDestroy {
 
-  selectedUserId: string;
+  selectedUserId: number;
   albums: Array<any>;
   selectedAlbums: Array<number> = [];
+  newAlbumTitle: string;
 
   // Subscribers
-  subAlbums;
-  subSelectedUser;
+  subAlbums: any;
+  subSelectedUser: any;
+  subAlbumCreate: any;
 
   constructor(
     private jService: JsonPlaceholderService,
-    private filterService: FiltersService
+    private filterService: FiltersService,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -34,6 +41,7 @@ export class AlbumsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subAlbums.unsubscribe();
     this.subSelectedUser.unsubscribe();
+    this.subAlbumCreate.unsubscribe();
   }
 
   getAlbums(selectedUserId) {
@@ -70,4 +78,36 @@ export class AlbumsComponent implements OnInit, OnDestroy {
       this.filterService.setAlbumsFilter(this.selectedAlbums);
     }
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AlbumCreateComponent, {
+      width: '250px',
+      data: {title: ''}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (typeof result !== 'undefined') {
+        this.newAlbumTitle = result;
+        this.createAlbum(result, this.selectedUserId);
+      }
+    });
+  }
+
+  createAlbum(title: string, userId: number) {
+    const endpoint = `albums`;
+    this.subAlbumCreate = this.jService.post( {title, userId}, endpoint).subscribe(
+      res => {
+        this.getAlbums(this.selectedUserId);
+        this.openSnackBar(`Album "${title}" was created`, 'Close');
+      }, err => {
+          console.log(err);
+      });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
 }

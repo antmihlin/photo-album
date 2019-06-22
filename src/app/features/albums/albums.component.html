@@ -2,7 +2,12 @@
   <div *ngIf="albums" >
     <div *ngFor="let album of albums" >
       <mat-checkbox [value]="album.id" (change)="onChange($event)" >{{album.title}}</mat-checkbox>
-    </div>    
+    </div>
+    <div >
+        <button mat-fab color="primary">
+            <mat-icon aria-hidden="false" aria-label="Add Album" (click)="openDialog()">add</mat-icon>
+        </button>
+    </div> 
   </div>
   <div *ngIf="!albums" >
     <p>Select a user first</p>
