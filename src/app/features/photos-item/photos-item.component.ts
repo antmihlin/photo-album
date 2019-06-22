@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-photos-item',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photos-item.component.scss']
 })
 export class PhotosItemComponent implements OnInit {
+
+  @Input()photo: any;
 
   constructor() { }
 

@@ -19,7 +19,7 @@ export class FiltersService {
   }
 
   setAlbumsFilter(albums: any) {
-    this.usersFilterSource.next(albums);
+    this.albumsFilterSource.next(albums);
   }
 
 }
