@@ -2,13 +2,13 @@
   <div fxLayuot="row">
     <div fxFlex="40px">
       <div class="user-item__avatar">
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <img *ngIf="user.avatar" src="{{user.avatar}}" alt="Photo of a Shiba Inu">
       </div>
     </div>
     <div fxFlex="auto">
-      <div>Name</div>
-      <div>Username</div>
-      <div>Email</div>
+      <div>{{user.name}}</div>
+      <div>{{user.username}}</div>
+      <div>{{user.email}}</div>
     </div>
   </div>
 </mat-list-item>

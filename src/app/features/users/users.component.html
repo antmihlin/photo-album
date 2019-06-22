@@ -51,7 +51,7 @@
   </div>
   <div fxFlex="auto">
     <mat-list>
-      <app-users-item *ngFor="let photo of [1, 2, 3, 4, 5, 6]"></app-users-item>
+      <app-users-item *ngFor="let user of users" [user]="user"></app-users-item>
     </mat-list>
   </div>
 </section>
