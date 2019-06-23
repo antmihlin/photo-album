@@ -12,6 +12,7 @@ export class PhotosComponent implements OnInit, OnDestroy {
   selectedAlbums: Array<any>;
   photos: Array<any> = [];
   orderByTerm = '';
+  p: number = 1;
 
   // Subscribers
   subSelectedAlbums: any;

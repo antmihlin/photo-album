@@ -1,5 +1,5 @@
 <section>
-  <div *ngIf="photos">
+  <div *ngIf="photos.length>0">
     <div>
       <mat-form-field>
         <mat-label>Order By</mat-label>
@@ -11,7 +11,7 @@
     </div>
     <div  fxLayout="row wrap" fxLayoutGap="1%" fxLayoutWrap>
       <app-photos-item
-        *ngFor="let photo of photos | orderBy: orderByTerm"
+        *ngFor="let photo of (photos | orderBy: orderByTerm | paginate: { itemsPerPage: 10, currentPage: p })"
         [photo]="photo"
         fxFlex.xs="100"
         fxFlex.sm="100"
@@ -19,6 +19,7 @@
         fxFlex.gt-md="24"
       ></app-photos-item>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 
   <div *ngIf="!photos">

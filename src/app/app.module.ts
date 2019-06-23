@@ -19,6 +19,8 @@ import {
   MatSelectModule
 } from '@angular/material';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './features/users/users.component';
@@ -61,7 +63,8 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     MatSelectModule,
     FlexLayoutModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   entryComponents: [AlbumCreateComponent],
   providers: [],
