@@ -52,6 +52,7 @@ export class AlbumsComponent implements OnInit, OnDestroy {
       res => {
         this.albums = res;
         this.loading = false;
+        this.filterService.setAlbumsFilter([]);
       }, err => {
           console.log(err);
       });

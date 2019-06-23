@@ -1,5 +1,6 @@
-<section>
-  <div *ngIf="photos.length>0">
+<mat-card class="example-card">
+  <mat-card-header>
+    <h2 *ngIf="photos.length > 0">{{ photos.length }} Photos</h2>
     <div>
       <mat-form-field>
         <mat-label>Order By</mat-label>
@@ -9,9 +10,20 @@
         </select>
       </mat-form-field>
     </div>
-    <div  fxLayout="row wrap" fxLayoutGap="1%" fxLayoutWrap>
+  </mat-card-header>
+  <mat-card-content>
+    <div
+      fxLayout="row wrap"
+      fxLayoutGap="1%"
+      fxLayoutWrap
+      *ngIf="photos.length > 0"
+    >
       <app-photos-item
-        *ngFor="let photo of (photos | orderBy: orderByTerm | paginate: { itemsPerPage: 10, currentPage: p })"
+        *ngFor="
+          let photo of photos
+            | orderBy: orderByTerm
+            | paginate: { itemsPerPage: 10, currentPage: p }
+        "
         [photo]="photo"
         fxFlex.xs="100"
         fxFlex.sm="100"
@@ -19,11 +31,12 @@
         fxFlex.gt-md="24"
       ></app-photos-item>
     </div>
+    <div *ngIf="photos.length === 0">
+      <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+      <p>First choose albums</p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </div>
-
-  <div *ngIf="photos.length===0">
-    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
-    <p>First choose albums</p>
-  </div>
-</section>
+  </mat-card-actions>
+</mat-card>

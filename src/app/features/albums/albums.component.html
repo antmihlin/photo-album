@@ -1,19 +1,33 @@
-<section>
-  <div *ngIf="albums" >
-    <div *ngFor="let album of albums" >
-      <mat-checkbox [value]="album.id" (change)="onChange($event)" >
-        {{ (album.title.length>15)? (album.title | slice:0:15)+'..':(album.title) }}
-      </mat-checkbox>
-      <span class="mat-small" > 1000 photos</span>
-    </div>
-    <div >
+<mat-card class="example-card">
+  <mat-card-header>
+    <h2>Albums</h2>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="albums">
+      <div *ngFor="let album of albums">
+        <mat-checkbox [value]="album.id" (change)="onChange($event)">
+          {{
+            album.title.length > 15
+              ? (album.title | slice: 0:15) + ".."
+              : album.title
+          }}
+        </mat-checkbox>
+        <span class="mat-small"> 1000 photos</span>
+      </div>
+      <div>
         <button mat-fab color="primary">
-            <mat-icon aria-hidden="false" aria-label="Add Album" (click)="openDialog()">add</mat-icon>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Add Album"
+            (click)="openDialog()"
+            >add</mat-icon
+          >
         </button>
-    </div> 
-  </div>
-  <div *ngIf="!albums" >
-    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
-    <p>Select a user first</p>
-  </div>
-</section>
+      </div>
+    </div>
+    <div *ngIf="!albums">
+      <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+      <p>Select a user first</p>
+    </div>
+  </mat-card-content>
+</mat-card>

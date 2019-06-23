@@ -11,6 +11,8 @@ export class PhotosItemComponent implements OnInit {
 
   @Input()photo: any;
 
+  loaded = false;
+
   constructor(
     public dialog: MatDialog,
   ) { }
