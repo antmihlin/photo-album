@@ -1,13 +1,26 @@
-<section >
-  <div >
-      <button mat-button (click)="orderByTerm='+'">A-Z</button>
-      <button mat-button (click)="orderByTerm='-'">Z-A</button>
-  </div>
-  <div *ngIf="photos" fxLayout="row wrap" fxLayoutGap="1%" fxLayoutWrap>
-      <app-photos-item *ngFor="let photo of photos | orderBy:orderByTerm" [photo]="photo"
-      fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="30" fxFlex.gt-md="24"
+<section>
+  <div *ngIf="photos">
+    <div>
+      <mat-form-field>
+        <mat-label>Order By</mat-label>
+        <select matNativeControl [(ngModel)]="orderByTerm">
+          <option value="+">A-Z</option>
+          <option value="-">Z-A</option>
+        </select>
+      </mat-form-field>
+    </div>
+    <div  fxLayout="row wrap" fxLayoutGap="1%" fxLayoutWrap>
+      <app-photos-item
+        *ngFor="let photo of photos | orderBy: orderByTerm"
+        [photo]="photo"
+        fxFlex.xs="100"
+        fxFlex.sm="100"
+        fxFlex.md="30"
+        fxFlex.gt-md="24"
       ></app-photos-item>
+    </div>
   </div>
+
   <div *ngIf="!photos">
     <p>First choose albums</p>
   </div>

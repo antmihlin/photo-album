@@ -15,7 +15,8 @@ import {
   MatButtonModule,
   MatDialogModule,
   MatFormFieldModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSelectModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -57,6 +58,7 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     MatDialogModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    MatSelectModule,
     FlexLayoutModule,
     HttpClientModule,
     FormsModule
