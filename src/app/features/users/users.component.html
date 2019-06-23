@@ -50,7 +50,7 @@
     </div>
   </div>
   <div fxFlex="auto">
-   
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
     <mat-list *ngIf="users">
       <app-users-item *ngFor="let user of users | userSearch: searchTerm" [user]="user"></app-users-item>
     </mat-list>

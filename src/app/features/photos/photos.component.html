@@ -22,7 +22,8 @@
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 
-  <div *ngIf="!photos">
+  <div *ngIf="photos.length===0">
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
     <p>First choose albums</p>
   </div>
 </section>

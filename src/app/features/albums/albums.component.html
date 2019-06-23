@@ -13,6 +13,7 @@
     </div> 
   </div>
   <div *ngIf="!albums" >
+    <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
     <p>Select a user first</p>
   </div>
 </section>

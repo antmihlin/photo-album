@@ -12,7 +12,8 @@ export class PhotosComponent implements OnInit, OnDestroy {
   selectedAlbums: Array<any>;
   photos: Array<any> = [];
   orderByTerm = '';
-  p: number = 1;
+  p = 1;
+  loading = false;
 
   // Subscribers
   subSelectedAlbums: any;
@@ -40,12 +41,14 @@ export class PhotosComponent implements OnInit, OnDestroy {
 
   getPhotos(selectedAlbums: Array<number>) {
     if (selectedAlbums.length > 0) {
+      this.loading = true;
       const params = this.formatParams(selectedAlbums);
       const endpoint = `photos?${params}`;
 
       this.subPhotos = this.jService.getAll( {}, endpoint).subscribe(
         res => {
           this.photos = res;
+          this.loading = false;
         }, err => {
             console.log(err);
       });

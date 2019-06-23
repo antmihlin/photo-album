@@ -16,7 +16,8 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatSnackBarModule,
-  MatSelectModule
+  MatSelectModule,
+  MatProgressBarModule
 } from '@angular/material';
 
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -61,6 +62,8 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     MatFormFieldModule,
     MatSnackBarModule,
     MatSelectModule,
+    MatProgressBarModule,
+
     FlexLayoutModule,
     HttpClientModule,
     FormsModule,

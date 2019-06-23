@@ -10,6 +10,7 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   searchVisible = false;
   searchTerm = '';
+  loading = false;
 
   users: Array<any>;
 
@@ -33,9 +34,11 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   getUsers() {
+    this.loading = true;
     const endPoint = 'users';
     this.subUsers = this.jService.getAll({}, endPoint).subscribe( res => {
       this.users = res;
+      this.loading = false;
     }, err => {
       console.log(err);
     });

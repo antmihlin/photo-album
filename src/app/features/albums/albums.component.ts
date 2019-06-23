@@ -16,6 +16,7 @@ export class AlbumsComponent implements OnInit, OnDestroy {
   albums: Array<any>;
   selectedAlbums: Array<number> = [];
   newAlbumTitle: string;
+  loading = false;
 
   // Subscribers
   subAlbums: any;
@@ -46,9 +47,11 @@ export class AlbumsComponent implements OnInit, OnDestroy {
 
   getAlbums(selectedUserId) {
     const endpoint = `albums?userId=${selectedUserId}`;
+    this.loading = true;
     this.subAlbums = this.jService.getAll( {}, endpoint).subscribe(
       res => {
         this.albums = res;
+        this.loading = false;
       }, err => {
           console.log(err);
       });
