@@ -26,7 +26,7 @@ export class AlbumsComponent implements OnInit, OnDestroy {
     private jService: JsonPlaceholderService,
     private filterService: FiltersService,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -105,7 +105,7 @@ export class AlbumsComponent implements OnInit, OnDestroy {
   }
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
+    this.snackBar.open(message, action, {
       duration: 2000,
     });
   }

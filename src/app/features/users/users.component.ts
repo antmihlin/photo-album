@@ -9,11 +9,12 @@ import { JsonPlaceholderService } from '../../services/json-placeholder.service'
 export class UsersComponent implements OnInit, OnDestroy {
 
   searchVisible = false;
+  searchTerm = '';
 
-  users: any;
+  users: Array<any>;
 
   // Subscribers
-  subUsers;
+  subUsers: any;
 
   constructor(
     private jService: JsonPlaceholderService,
