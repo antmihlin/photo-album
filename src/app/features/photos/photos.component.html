@@ -1,14 +1,18 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <h2 *ngIf="photos.length > 0">{{ photos.length }} Photos</h2>
-    <div>
-      <mat-form-field>
-        <mat-label>Order By</mat-label>
-        <select matNativeControl [(ngModel)]="orderByTerm">
-          <option value="+">A-Z</option>
-          <option value="-">Z-A</option>
-        </select>
-      </mat-form-field>
+<mat-card class="photos full-height" >
+  <mat-card-header class="header-align">
+    <div class="photos__header" fxFlex fxLatyout="row" fxLayoutAlign="space-between center" >
+      <div>
+          <h4 *ngIf="photos.length > 0">{{ photos.length }} Photos</h4>
+      </div>
+      <div>
+          <mat-form-field>
+            <mat-label>Order By</mat-label>
+            <select matNativeControl [(ngModel)]="orderByTerm">
+              <option value="+">A-Z</option>
+              <option value="-">Z-A</option>
+            </select>
+          </mat-form-field>
+        </div>
     </div>
   </mat-card-header>
   <mat-card-content>
@@ -22,8 +26,7 @@
         *ngFor="
           let photo of photos
             | orderBy: orderByTerm
-            | paginate: { itemsPerPage: 10, currentPage: p }
-        "
+            | paginate: { itemsPerPage: 10, currentPage: p } "
         [photo]="photo"
         fxFlex.xs="100"
         fxFlex.sm="100"
@@ -36,7 +39,9 @@
       <p>First choose albums</p>
     </div>
   </mat-card-content>
-  <mat-card-actions>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <mat-card-actions  >
+    <div fxLatyout="row" fxLayoutAlign="end center">
+        <pagination-controls *ngIf="photos.length > 0" (pageChange)="p = $event"></pagination-controls>
+    </div>
   </mat-card-actions>
 </mat-card>

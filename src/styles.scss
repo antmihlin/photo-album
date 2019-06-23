@@ -1,10 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+body{
+  background: #f3f3f3;
+  overflow:scroll;
+  margin: 1% !important;
+}
+
+.full-height{
+}
+
 .users{
   &__search{
     .mat-form-field-infix {
       width:auto !important;
     }
+  }
+}
+
+.header-align{
+  .mat-card-header-text{
+    margin:0 !important;
   }
 }

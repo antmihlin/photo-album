@@ -1,9 +1,9 @@
-  <mat-card class="users">
-    <mat-card-header>
+  <mat-card class="users full-height">
+    <mat-card-header class="header-align">
       <div>
         <div fxLayout="row" *ngIf="!searchVisible">
           <div fxFlex="50%">
-            <h2>Users</h2>
+            <h4>Users</h4>
           </div>
           <div fxFlex="auto" fxFlexAlign="right">
             <button mat-button matSuffix mat-icon-button>
@@ -37,7 +37,7 @@
               aria-label="Back"
               (click)="toggleSearch()"
             >
-              <mat-icon aria-hidden="false" aria-label="BAck icon"
+              <mat-icon aria-hidden="false" aria-label="Back icon"
                 >arrow_back</mat-icon
               >
             </button>

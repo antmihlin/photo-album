@@ -3,7 +3,13 @@
     <img mat-card-image src="{{photo.thumbnailUrl}}" (load)="loaded=true">
     <mat-spinner *ngIf="!loaded"></mat-spinner>
     <div >
-        <mat-card-title>{{photo.title}}</mat-card-title>
+        <mat-card-title>
+          {{
+            photo.title.length > 40
+              ? (photo.title | slice: 0:40) + ".."
+              : photo.title
+          }}
+        </mat-card-title>
     </div>    
   </mat-card>
 </div>

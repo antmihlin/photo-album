@@ -1,15 +1,15 @@
-<div class="container">
-  <div fxLayout="row" fxLayoutWrap fxLayoutGap="1%">
-    <div fxFlex="20%">
+<div class="container full-height">
+  <div class="full-height" fxLayout="row" fxLayoutWrap fxLayoutGap="1%" fxLayoutAlign="space-between none">
+    <div fxFlex="20%" fxFlexFill>
       <app-users></app-users>
     </div>
-    <div fxFlex="80%">
-      <div fxLayout="column" fxLayoutWrap fxLayoutGap="1%">
-        <div fxFlex="30%">
-          <app-albums></app-albums>
+    <div fxFlex="80%" fxFlexFill>
+      <div fxLayout="column" class="full-height" fxLayoutWrap fxLayoutGap="1%" fxLayoutAlign="space-between none">
+        <div fxFlex="25%">
+          <app-albums class="full-height"></app-albums>
         </div>
-        <div fxFlex="70%">
-          <app-photos></app-photos>
+        <div fxFlex fxFlexFill>
+          <app-photos class="full-height"></app-photos>
         </div>
       </div>
     </div>

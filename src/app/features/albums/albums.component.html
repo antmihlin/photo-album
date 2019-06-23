@@ -1,10 +1,15 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <h2>Albums</h2>
+<mat-card class="albums" class="full-height">
+  <mat-card-header class="header-align">
+    <h4>Albums</h4>
   </mat-card-header>
   <mat-card-content>
-    <div *ngIf="albums">
-      <div *ngFor="let album of albums">
+    <div *ngIf="albums" fxLayout="row wrap" >
+      <div *ngFor="let album of albums" 
+      fxFlex.xs="100"
+      fxFlex.sm="45"
+      fxFlex.md="24"
+      fxFlex.gt-md="20"
+      >
         <mat-checkbox [value]="album.id" (change)="onChange($event)">
           {{
             album.title.length > 15
@@ -14,7 +19,8 @@
         </mat-checkbox>
         <span class="mat-small"> 1000 photos</span>
       </div>
-      <div>
+    </div>
+    <div *ngIf="albums" class="albums__new">
         <button mat-fab color="primary">
           <mat-icon
             aria-hidden="false"
@@ -24,7 +30,6 @@
           >
         </button>
       </div>
-    </div>
     <div *ngIf="!albums">
       <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
       <p>Select a user first</p>
