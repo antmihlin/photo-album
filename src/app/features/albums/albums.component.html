@@ -1,7 +1,10 @@
 <section>
   <div *ngIf="albums" >
     <div *ngFor="let album of albums" >
-      <mat-checkbox [value]="album.id" (change)="onChange($event)" >{{album.title}}</mat-checkbox>
+      <mat-checkbox [value]="album.id" (change)="onChange($event)" >
+        {{ (album.title.length>15)? (album.title | slice:0:15)+'..':(album.title) }}
+      </mat-checkbox>
+      <span class="mat-small" > 1000 photos</span>
     </div>
     <div >
         <button mat-fab color="primary">
