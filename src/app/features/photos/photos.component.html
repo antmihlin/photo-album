@@ -1,5 +1,5 @@
-<mat-card class="photos full-height" >
-  <mat-card-header class="header-align">
+<mat-card class="photos" fxFlex="100%" fxLayout="column" >
+  <mat-card-header class="header-align" fxFlex>
     <div class="photos__header" fxFlex fxLatyout="row" fxLayoutAlign="space-between center" >
       <div>
           <h4 >
@@ -17,8 +17,8 @@
         </div>
     </div>
   </mat-card-header>
-  <mat-card-content>
-    <div
+  <mat-card-content class="photos__content" fxFlex="80%">
+    <div 
       fxLayout="row wrap"
       fxLayoutGap="1%"
       fxLayoutWrap
@@ -41,7 +41,7 @@
       <p>First choose albums</p>
     </div>
   </mat-card-content>
-  <mat-card-actions  >
+  <mat-card-actions  fxFlex="10%">
     <div fxLatyout="row" fxLayoutAlign="end center">
         <pagination-controls *ngIf="photos.length > 0" (pageChange)="p = $event"></pagination-controls>
     </div>

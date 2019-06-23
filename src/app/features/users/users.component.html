@@ -1,7 +1,6 @@
-  <mat-card class="users full-height">
-    <mat-card-header class="header-align">
-      <div>
-        <div fxLayout="row" *ngIf="!searchVisible">
+  <mat-card class="users " fxFlex="100%" fxLayout="column">
+    <mat-card-header class="header-align" fxFlex fxLayout="row">
+        <div fxFlex fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!searchVisible">
           <div fxFlex="50%">
             <h4>Users</h4>
           </div>
@@ -28,7 +27,7 @@
             </button>
           </div>
         </div>
-        <div *ngIf="searchVisible" fxLayout="row">
+        <div fxFlex *ngIf="searchVisible" fxLayout="row" fxLayoutAlign="space-between center">
           <div fxFlex="auto">
             <button
               mat-button
@@ -62,9 +61,8 @@
             </mat-form-field>
           </div>
         </div>
-      </div>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content class="users__content" fxFlex="90%">
       <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
       <mat-list *ngIf="users">
         <app-users-item

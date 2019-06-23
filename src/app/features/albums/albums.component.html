@@ -1,8 +1,8 @@
-<mat-card class="albums" class="full-height">
-  <mat-card-header class="header-align">
+<mat-card class="albums" fxFlex="100%" fxLayout="column">
+  <mat-card-header class="header-align" fxFlex>
     <h4>Albums</h4>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content class="albums__content" fxFlex="60%">
     <div *ngIf="albums" fxLayout="row wrap" >
       <div *ngFor="let album of albums" 
       fxFlex.xs="100"
