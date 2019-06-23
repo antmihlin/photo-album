@@ -5,6 +5,12 @@ import { JsonPlaceholderService } from '../../services/json-placeholder.service'
 import { FiltersService } from '../../services/filters.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+export interface Album {
+  userId: number;
+  id: number;
+  title: string;
+}
+
 @Component({
   selector: 'app-albums',
   templateUrl: './albums.component.html',
@@ -13,7 +19,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AlbumsComponent implements OnInit, OnDestroy {
 
   selectedUserId: number;
-  albums: Array<any>;
+  albums: Array<Album>;
   selectedAlbums: Array<number> = [];
   newAlbumTitle: string;
   loading = false;

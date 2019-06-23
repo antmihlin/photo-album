@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { JsonPlaceholderService } from '../../services/json-placeholder.service';
 import { FiltersService} from '../../services/filters.service';
+import { Photo } from '../../models/photo.model';
 
 @Component({
   selector: 'app-photos',
@@ -9,8 +10,8 @@ import { FiltersService} from '../../services/filters.service';
 })
 export class PhotosComponent implements OnInit, OnDestroy {
 
-  selectedAlbums: Array<any>;
-  photos: Array<any> = [];
+  selectedAlbums: Array<number>;
+  photos: Array<Photo> = [];
   orderByTerm = '';
   p = 1;
   loading = false;

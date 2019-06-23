@@ -1,6 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FiltersService} from '../../services/filters.service';
 
+export interface User {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+}
+
 @Component({
   selector: 'app-users-item',
   templateUrl: './users-item.component.html',
@@ -8,7 +15,7 @@ import { FiltersService} from '../../services/filters.service';
 })
 export class UsersItemComponent implements OnInit {
 
-  @Input()user: any;
+  @Input()user: User;
 
   constructor(
     private filterService: FiltersService,
@@ -17,7 +24,7 @@ export class UsersItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectUser(id) {
+  selectUser(id: number): void {
     this.filterService.setUsersFilter(id);
   }
 

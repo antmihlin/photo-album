@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoFullComponent } from '../photo-full/photo-full.component';
+import { Photo } from '../../models/photo.model';
 
 @Component({
   selector: 'app-photos-item',
@@ -9,7 +10,7 @@ import { PhotoFullComponent } from '../photo-full/photo-full.component';
 })
 export class PhotosItemComponent implements OnInit {
 
-  @Input()photo: any;
+  @Input()photo: Photo;
 
   loaded = false;
 
