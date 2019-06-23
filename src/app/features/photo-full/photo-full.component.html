@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Full picture</h1>
+<div mat-dialog-content>
+  <mat-spinner *ngIf="!loaded"></mat-spinner>
+  <img [src]="data.url" (load)="loaded=true">
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>

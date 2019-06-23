@@ -17,7 +17,8 @@ import {
   MatFormFieldModule,
   MatSnackBarModule,
   MatSelectModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -33,6 +34,7 @@ import { PhotosItemComponent } from './features/photos-item/photos-item.componen
 import { HomeComponent } from './pages/home/home.component';
 import { UserSearchPipe } from './pipes/user-search.pipe';
 import { OrderByPipe } from './pipes/order-by.pipe';
+import { PhotoFullComponent } from './features/photo-full/photo-full.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     PhotosItemComponent,
     HomeComponent,
     UserSearchPipe,
-    OrderByPipe
+    OrderByPipe,
+    PhotoFullComponent
   ],
   imports: [
     BrowserModule,
@@ -63,13 +66,14 @@ import { OrderByPipe } from './pipes/order-by.pipe';
     MatSnackBarModule,
     MatSelectModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
 
     FlexLayoutModule,
     HttpClientModule,
     FormsModule,
     NgxPaginationModule
   ],
-  entryComponents: [AlbumCreateComponent],
+  entryComponents: [AlbumCreateComponent, PhotoFullComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
