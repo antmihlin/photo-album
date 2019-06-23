@@ -1,6 +1,10 @@
 <section >
+  <div >
+      <button mat-button (click)="orderByTerm='+'">A-Z</button>
+      <button mat-button (click)="orderByTerm='-'">Z-A</button>
+  </div>
   <div *ngIf="photos" fxLayout="row wrap" fxLayoutGap="1%" fxLayoutWrap>
-      <app-photos-item *ngFor="let photo of photos" [photo]="photo"
+      <app-photos-item *ngFor="let photo of photos | orderBy:orderByTerm" [photo]="photo"
       fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="30" fxFlex.gt-md="24"
       ></app-photos-item>
   </div>

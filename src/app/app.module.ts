@@ -28,6 +28,7 @@ import { PhotosComponent } from './features/photos/photos.component';
 import { PhotosItemComponent } from './features/photos-item/photos-item.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserSearchPipe } from './pipes/user-search.pipe';
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { UserSearchPipe } from './pipes/user-search.pipe';
     PhotosComponent,
     PhotosItemComponent,
     HomeComponent,
-    UserSearchPipe
+    UserSearchPipe,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
