@@ -2,9 +2,11 @@
   <mat-card-header class="header-align">
     <div class="photos__header" fxFlex fxLatyout="row" fxLayoutAlign="space-between center" >
       <div>
-          <h4 *ngIf="photos.length > 0">{{ photos.length }} Photos</h4>
+          <h4 >
+            Photos: <span *ngIf="photos.length > 0">{{ photos.length }}</span>
+          </h4>
       </div>
-      <div>
+      <div *ngIf="photos.length > 0">
           <mat-form-field>
             <mat-label>Order By</mat-label>
             <select matNativeControl [(ngModel)]="orderByTerm">
