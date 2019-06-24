@@ -1,27 +1,48 @@
-# Exb
+# Mini photos app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+It is Angular based photo collection application. It works with a mock api.
+The API lacks such functionalities as search, pagination, count. Therefore these functionalities are implemented through Angular.
 
-## Development server
+## Functionalities
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ - Filter users
+ - Chose user
+ - Chose albums
+ - Create new album - sends request to an API, though it is a fake API
+ - Sort photos
+ - Paginate photos - Angular pagination. In production should be paginated the request to an API.
+ - View full size photo
 
-## Code scaffolding
+## Structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ --features
+ ----albums.component
+ ----album-create.component - album creation dialog
+ ----users.component
+ ----users-item.component
+ ----photos.component
+ ----photos-item.component
+ ----photo-full.component - full photo dialog
+ --services
+ --pipes
+ --models
+ --pages
 
-## Build
+## Getting started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The application uses [Angular CLI](https://cli.angular.io/). Therefore it is easy to manage with a help of CLI commands. For more details refer to the docs.
 
-## Running unit tests
+Clone the repository. Then start terminal in the repository's directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    npm install
+    ng serve
+    
 
-## Running end-to-end tests
+## Resources
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ - [Angular](https://angular.io/)
+ - [Angular CLI](https://cli.angular.io/)
+ - [Angular Material](https://material.angular.io/components/categories)
+ - [Angular Flex Layout](https://github.com/angular/flex-layout/wiki/API-Documentation)
+ - [NGX Pagination](https://www.npmjs.com/package/ngx-pagination)
+ - [JsonPlaceholder](http://jsonplaceholder.typicode.com/) - Mock API
