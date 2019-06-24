@@ -16,17 +16,29 @@ The API lacks such functionalities as search, pagination, count. Therefore these
 ## Structure
 
  --features
+
  ----albums.component
+
  ----album-create.component - album creation dialog
+
  ----users.component
+
  ----users-item.component
+
  ----photos.component
+
  ----photos-item.component
+
  ----photo-full.component - full photo dialog
+
  --services
+
  --pipes
+
  --models
+
  --pages
+ 
 
 ## Getting started
 
